@@ -18,8 +18,6 @@ Paso 1: Descargar o clonar el repositorio
 Puedes clonar el repositorio en tu máquina local utilizando el siguiente comando:
 
 bash
-Copy
-Edit
 git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 O simplemente descarga el archivo ZIP desde el repositorio de GitHub.
 
@@ -32,8 +30,6 @@ Paso 3: Ejecutar el código
 Navega hasta la carpeta donde descargaste el repositorio:
 
 bash
-Copy
-Edit
 cd ruta/a/tu/repositorio
 Ejecuta el archivo alu.py con el siguiente comando:
 
@@ -115,7 +111,7 @@ def simulate_pipeline(operations):
     return instructions_per_second
 ```
 # Simular el pipeline sobre las operaciones
-```
+```python
 import random
 import time
 from alu import alu  # Importar las funciones del archivo alu.py
