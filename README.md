@@ -44,7 +44,7 @@ python alu.py
 4. Código de la ALU (alu.py)
 El archivo alu.py contiene el código necesario para ejecutar las operaciones de la ALU. Aquí está el código:
 
-python
+```python
 Copy
 Edit
 import time
@@ -70,25 +70,27 @@ def alu(op_code, a, b):
         return a >> 1
     else:
         return None
-
+```
 # Generar arreglo de 1,000,000 de pares aleatorios de enteros de 32 bits
 num_operations = 1000000
 operations = ["ADD", "SUB", "AND", "OR", "XOR", "NOT", "SHL", "SHR"]
 pairs = [(random.randint(0, 2**32 - 1), random.randint(0, 2**32 - 1)) for _ in range(num_operations)]
 
 # Medir tiempo de ejecución de las operaciones
+```
 start_time = time.time()
-
+```
 # Ejecutar todas las operaciones
-for a, b in pairs:
+```for a, b in pairs:
     for op in operations:
         alu(op, a, b)
 
 end_time = time.time()
-
+```
 # Imprimir tiempo total de ejecución
-execution_time = end_time - start_time
+```execution_time = end_time - start_time
 print(f"Tiempo total de ejecución para 1,000,000 de operaciones: {execution_time} segundos.")
+```
 Paso 4: Medición de los tiempos
 El código anterior incluye el cálculo del tiempo de ejecución con la función time.time(). Cuando ejecutes el código, verás el tiempo total de ejecución de las operaciones en la terminal.
 
@@ -101,6 +103,7 @@ python
 Copy
 Edit
 # Simular un pipeline de 4 etapas (Fetch, Decode, Execute, Write-back)
+```
 def simulate_pipeline(operations):
     num_stages = 4  # Fetch, Decode, Execute, Write-back
     cycle_time = 1  # Latencia unitaria
@@ -110,7 +113,7 @@ def simulate_pipeline(operations):
 
     # Medir el tiempo real en el pipeline simulado
     return instructions_per_second
-
+```
 # Simular el pipeline sobre las operaciones
 instructions_per_second = simulate_pipeline(pairs)
 print(f"Instrucciones por segundo (con pipeline ideal): {instructions_per_second}")
