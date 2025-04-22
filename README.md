@@ -41,8 +41,6 @@ python alu.py
 El archivo alu.py contiene el código necesario para ejecutar las operaciones de la ALU. Aquí está el código:
 
 ```python
-Copy
-Edit
 import time
 import random
 
