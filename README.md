@@ -1,4 +1,4 @@
-Instrucciones para ejecutar el proyecto de la Tarea 1
+# Instrucciones para ejecutar el proyecto de la Tarea 1
 Este archivo contiene las instrucciones necesarias para compilar y ejecutar el código de la Tarea 1, que consiste en la implementación de la ALU y el análisis de ILP.
 
 1. Requisitos
@@ -115,8 +115,48 @@ def simulate_pipeline(operations):
     return instructions_per_second
 ```
 # Simular el pipeline sobre las operaciones
-instructions_per_second = simulate_pipeline(pairs)
-print(f"Instrucciones por segundo (con pipeline ideal): {instructions_per_second}")
+```
+import random
+import time
+from alu import alu  # Importar las funciones del archivo alu.py
+
+NUM_PARES = 1_000_000
+datos = [(random.randint(0, 2**31 - 1), random.randint(0, 2**31 - 1)) for _ in range(NUM_PARES)]
+
+# Medir tiempo real de ejecución por operación
+resultados = {}
+print("Ejecutando operaciones...")
+
+for op in ["ADD", "SUB", "AND", "OR", "XOR", "NOT", "SHL", "SHR"]:
+    inicio = time.time()
+    for a, b in datos:
+        if op in ["NOT", "SHL", "SHR"]:
+            alu(op, a)
+        else:
+            alu(op, a, b)
+    fin = time.time()
+    duracion = fin - inicio
+    resultados[op] = duracion
+    print(f"{op}: {duracion:.4f} segundos")
+
+# Simulación del pipeline (teórico)
+num_instrucciones = NUM_PARES * len(resultados)  
+
+clock_ns = 1e-9
+tiempo_sin_pipeline = num_instrucciones * 4 * clock_ns
+tiempo_con_pipeline = (NUM_PARES + 3) * len(resultados) * clock_ns
+
+print("Simulación de Pipeline:")
+print(f"Tiempo sin pipeline (CPI=4): {tiempo_sin_pipeline:.6f} s")
+print(f"Tiempo con pipeline ideal (CPI=1): {tiempo_con_pipeline:.6f} s")
+
+# Comparación con tiempos reales
+total_tiempo_real = sum(resultados.values())
+throughput_real = num_instrucciones / total_tiempo_real
+
+print(f"Tiempo total real (Python): {total_tiempo_real:.4f} s")
+print(f"Throughput real: {throughput_real:.2f} instrucciones/segundo")
+```
 Este código simula el pipeline de 4 etapas y calcula el rendimiento teórico. Al ejecutarlo, verás en la terminal las instrucciones por segundo en un pipeline ideal.
 
 6. Consideraciones
