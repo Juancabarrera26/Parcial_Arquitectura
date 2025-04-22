@@ -1,6 +1,6 @@
-# README - Simulación de LMC
+# Simulación de LMC
 
-## Descripción del Proyecto
+## Descripción 
 Este proyecto simula el funcionamiento de un procesador simplificado utilizando el concepto de LMC (Little Man Computer). El programa simula la suma de los primeros 10 números naturales y muestra el resultado utilizando un conjunto de instrucciones básico.
 
 ## Requisitos
