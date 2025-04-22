@@ -72,10 +72,10 @@ def alu(op_code, a, b):
         return None
 ```
 # Generar arreglo de 1,000,000 de pares aleatorios de enteros de 32 bits
-num_operations = 1000000
+```num_operations = 1000000
 operations = ["ADD", "SUB", "AND", "OR", "XOR", "NOT", "SHL", "SHR"]
 pairs = [(random.randint(0, 2**32 - 1), random.randint(0, 2**32 - 1)) for _ in range(num_operations)]
-
+```
 # Medir tiempo de ejecución de las operaciones
 ```
 start_time = time.time()
