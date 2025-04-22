@@ -1,11 +1,48 @@
-# Parcial_Arquitectura
+Instrucciones para ejecutar el proyecto de la Tarea 1
+Este archivo contiene las instrucciones necesarias para compilar y ejecutar el código de la Tarea 1, que consiste en la implementación de la ALU y el análisis de ILP.
 
-# Instrucciones para compilar y ejecutar programa
+1. Requisitos
+Python 3.x (Se recomienda usar Python 3.7 o superior)
 
-copia y pega
+Bibliotecas necesarias: time, random (estas son bibliotecas estándar de Python)
 
-Código para la implementación de la ALU (alu.py)
-Código de la ALU:
+2. Estructura del Proyecto
+El proyecto contiene los siguientes archivos:
+
+alu.py: Implementación de la ALU y la ejecución de operaciones.
+
+README.txt: Este archivo con las instrucciones para ejecutar el código.
+
+3. Instrucciones para ejecutar el código
+Paso 1: Descargar o clonar el repositorio
+Puedes clonar el repositorio en tu máquina local utilizando el siguiente comando:
+
+bash
+Copy
+Edit
+git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+O simplemente descarga el archivo ZIP desde el repositorio de GitHub.
+
+Paso 2: Preparar el entorno
+Si no tienes Python instalado, descarga e instala Python desde python.org.
+
+Abre una terminal o línea de comandos.
+
+Paso 3: Ejecutar el código
+Navega hasta la carpeta donde descargaste el repositorio:
+
+bash
+Copy
+Edit
+cd ruta/a/tu/repositorio
+Ejecuta el archivo alu.py con el siguiente comando:
+
+bash
+Copy
+Edit
+python alu.py
+4. Código de la ALU (alu.py)
+El archivo alu.py contiene el código necesario para ejecutar las operaciones de la ALU. Aquí está el código:
 
 python
 Copy
@@ -52,15 +89,13 @@ end_time = time.time()
 # Imprimir tiempo total de ejecución
 execution_time = end_time - start_time
 print(f"Tiempo total de ejecución para 1,000,000 de operaciones: {execution_time} segundos.")
-Este código define la función alu que recibe un código de operación (op_code) y dos operandos (a, b), y realiza las operaciones de la ALU como suma, resta, operaciones bitwise, y desplazamientos lógicos.
+Paso 4: Medición de los tiempos
+El código anterior incluye el cálculo del tiempo de ejecución con la función time.time(). Cuando ejecutes el código, verás el tiempo total de ejecución de las operaciones en la terminal.
 
-Paso 3: Medición de los tiempos
-Código para medir el tiempo de ejecución:
+5. Análisis ILP (Simulación de Pipeline)
+El análisis ILP simula un pipeline de 4 etapas (Fetch, Decode, Execute, Write-back) y calcula el throughput en un escenario ideal (sin latencia o conflictos).
 
-El código anterior ya incluye el cálculo del tiempo de ejecución con la función time.time(). No es necesario escribir código adicional para medir el tiempo, ya que está integrado en la ejecución de las operaciones.
-
-Paso 4: Análisis ILP (Simulación de Pipeline)
-Código para el análisis ILP (simulación de un pipeline de 4 etapas):
+Código para el análisis ILP:
 
 python
 Copy
@@ -79,19 +114,12 @@ def simulate_pipeline(operations):
 # Simular el pipeline sobre las operaciones
 instructions_per_second = simulate_pipeline(pairs)
 print(f"Instrucciones por segundo (con pipeline ideal): {instructions_per_second}")
-Este código simula un pipeline de 4 etapas y calcula el throughput en un escenario ideal (sin latencia o conflictos).
+Este código simula el pipeline de 4 etapas y calcula el rendimiento teórico. Al ejecutarlo, verás en la terminal las instrucciones por segundo en un pipeline ideal.
 
-Paso 5: Comparación de los resultados
-El script anterior compara el rendimiento teórico del pipeline ideal con el tiempo real calculado por el código. Aquí se muestra el tiempo total de ejecución y el throughput para el análisis ILP.
-
-Paso 6: Ejecutar el código
-Para ejecutar el código:
-
-Copia y pega el código de cada paso en celdas separadas en tu cuaderno de Google Colab.
-
-Ejecuta las celdas y observa los resultados en la consola.
-
-3. Consideraciones:
+6. Consideraciones
 Tiempo de ejecución: Debido a que se están ejecutando 1,000,000 de operaciones, el tiempo de ejecución puede variar dependiendo de la capacidad de tu máquina.
 
 Análisis ILP: La simulación del pipeline se basa en un modelo simplificado con latencias unitarias. El throughput teórico es 1 instrucción por ciclo en el pipeline ideal.
+
+7. Resultados Esperados
+Al ejecutar el código, se imprimirá el tiempo total de ejecución de las 1,000,000 de operaciones y el throughput calculado para el pipeline ideal.
