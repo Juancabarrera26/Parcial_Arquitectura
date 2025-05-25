@@ -1,4 +1,5 @@
 ```
-a(x).P      // Proceso que espera recibir x por canal a
-a<y>.P      // Proceso que envía y por canal a
+P = a(x).P’     // espera un valor x
+Q = a<3>.Q’     // envía el número 3
+
 ```
